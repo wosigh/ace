@@ -287,6 +287,19 @@ console.log('# ace worker ---------');
     });
 });
 
+// copy hash handler
+console.log('# ace keyboard ---------');
+copy({
+    source: [
+        copy.source.commonjs({
+            project: project.clone(),
+            require: [ 'ace/keyboard/hash_handler' ]
+        })
+    ],
+    filter: [ copy.filter.moduleDefines, copy.filter.uglifyjs, filterTextPlugin ],
+    dest: "build/src/hash_handler.js"
+});
+
 console.log('# ace key bindings ---------');
 
 // copy key bindings
